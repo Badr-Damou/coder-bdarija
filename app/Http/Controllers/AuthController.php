@@ -12,16 +12,12 @@ class AuthController extends Controller
     {
         $fields = $request->validate([
             'name' => 'required|max:255',
-            'phone_number' => 'string|max:20',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed',
         ]);
 
         // Create user
         $fields['password'] = Hash::make($fields['password']);
-        $fields['is_active'] = true;
-        $fields['phone_number'] = $fields['phone_number'] ?? null;
-        $fields['last_login'] = now();
         $fields['role'] ='admin';
         $user = User::create($fields);
 

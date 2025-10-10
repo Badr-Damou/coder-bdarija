@@ -15,6 +15,10 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->api(remove: [
             \Illuminate\Session\Middleware\StartSession::class,
         ]);
+
+        $middleware->alias([
+        'role' => \App\Http\Middleware\RoleMiddleware::class,
+    ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
