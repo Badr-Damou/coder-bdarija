@@ -44,7 +44,14 @@ class PlaylistRepository
                 'rating' => $data['rating'] ?? null,
             ]);
         
-    return $updated ? DB::table('playlists')->where('id', $id)->first() : null;
+        return $updated ? DB::table('playlists')
+            ->where('id', $id)
+            ->first() : null;
     }
 
+
+    public function getplaylists()
+    {
+        return Playlist::all();
+    }
 }

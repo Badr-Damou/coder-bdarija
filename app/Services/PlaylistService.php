@@ -29,4 +29,9 @@ class PlaylistService
     {
         return $this->playlistRepository->update($id, $data);
     }
+
+    public function getAllPlaylists()
+    {
+        return $this->playlistRepository->getplaylists();
+    }
 }

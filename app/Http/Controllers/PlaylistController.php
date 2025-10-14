@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Playlist;
 use App\Services\PlaylistService;
 use Illuminate\Http\Request;
 
@@ -56,5 +57,14 @@ class PlaylistController extends Controller
         } else {
             return response()->json(['message' => 'Playlist not found or update failed'], 404);
         }
+    }
+    
+    public function getPlaylists()
+    {
+        $playlists = $this->playlistService->getAllPlaylists();
+        if (!$playlists){
+            return response()->json(['message' => 'No playlists found'], 404);
+        }
+        return response()->json($playlists, 200);
     }
 }
