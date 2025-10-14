@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Playlist extends Model
 {
     protected $fillable = [
-        'title', 'description', 'url', 'duration', 'order',
+        'title', 'description', 'level', 'constructor', 'thumbnail', 'slug', 'rating'
     ];
 
     public function videos()

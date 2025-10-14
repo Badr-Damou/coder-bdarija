@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->enum('level', ['beginner', 'intermediate', 'advanced'])->default('beginner');
             $table->string('thumbnail')->nullable();
-            $table->string('constuctor')->nullable();
+            $table->string('constructor')->nullable();
             $table->string('slug')->unique();
             $table->string('image')->nullable();
             $table->float('rating')->default(5.0);

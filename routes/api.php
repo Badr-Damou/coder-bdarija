@@ -16,7 +16,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/test', fn() => response()->json(['message' => 'API test working']));
     Route::get('/admin-only', fn() => response()->json(['message' => 'Admin access granted']));
-    Route::post('/playlist/create', [PlaylistController::class, 'createPlaylist']);
+    Route::post('/playlist/create', [PlaylistController::class, 'storePlaylist']);
     Route::delete('/playlist/{id}', [PlaylistController::class, 'deletePlaylist']);
     Route::put('/playlist/{id}', [PlaylistController::class, 'updatePlaylist']);
     Route::get('/playlists', [PlaylistController::class, 'getPlaylists']);
