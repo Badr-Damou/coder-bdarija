@@ -21,7 +21,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::put('/playlist/{id}', [PlaylistController::class, 'updatePlaylist']);
     Route::get('/playlists', [PlaylistController::class, 'getPlaylists']);
     Route::get('/playlist/{id}', [PlaylistController::class, 'showPlaylist']);
-    Route::post('/blog/create', [BlogController::class, 'createBlog']);
+    Route::post('/blog/create', [BlogController::class, 'storeBlog']);
     Route::delete('/blog/{id}', [BlogController::class, 'deleteBlog']);
     Route::put('/blog/{id}', [BlogController::class, 'updateBlog']);
     Route::get('/blogs', [BlogController::class, 'indexBlogs']);
@@ -29,6 +29,12 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/categories', [CategoryController::class, 'getCategories']);
     Route::post('/category/create', [CategoryController::class, 'createCategory']);
     Route::delete('/category/{id}', [CategoryController::class, 'deleteCategory']);
+    Route::put('category/{id}', [CategoryController::class, 'updateCategory']);
+    Route::get('/category/{id}', [CategoryController::class, 'showCategory']);
+    Route::post('/author/create', [AuthorController::class, 'storeAuthor']);
     Route::get('/authors', [AuthController::class, 'getAuthors']);
     Route::get('/author/{id}/show', [AuthorController::class, 'showAuthor']);
+    Route::put('/author/{id}/update', [AuthorController::class, 'updateAuthor']);
+    Route::delete('/author/{id}/delete', [AuthorController::class, 'deleteAuthor']);
+
 });
