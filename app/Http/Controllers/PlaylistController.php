@@ -67,4 +67,14 @@ class PlaylistController extends Controller
         }
         return response()->json($playlists, 200);
     }
+
+    public function showPlaylist($id)
+    {
+        $playlist = Playlist::with('videos')->find($id);
+        if (!$playlist) {
+            return response()->json(['message' => 'Playlist not found'], 404);
+        }
+        return response()->json($playlist, 200);
+    }
+    
 }
