@@ -8,5 +8,8 @@ use Illuminate\Support\Facades\DB;
 class BlogRepository
 {
     
-    
+    public function store($data)
+    {
+        return Blog::create($data);
+    }
 }
