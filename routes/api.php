@@ -24,7 +24,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::post('/blog/create', [BlogController::class, 'storeBlog']);
     Route::delete('/blog/{id}', [BlogController::class, 'deleteBlog']);
     Route::put('/blog/{id}', [BlogController::class, 'updateBlog']);
-    Route::get('/blogs', [BlogController::class, 'indexBlogs']);
+    Route::get('/blogs', [BlogController::class, 'getBlogs']);
     Route::get('/blog/{id}', [BlogController::class, 'showBlog']);
     Route::get('/categories', [CategoryController::class, 'getCategories']);
     Route::post('/category/create', [CategoryController::class, 'createCategory']);

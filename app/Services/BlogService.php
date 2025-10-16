@@ -16,8 +16,21 @@ class BlogService
         $this->blogRepository = $blogRepository;   
     }
 
+    public function getBlogs()
+    {
+        return $this->blogRepository->getAll();
+    }
     public function storeBlog($data)
     {
         return $this->blogRepository->store($data);
+    }
+
+    public function deleteblog($id){
+        return $this->blogRepository->delete($id);
+    }
+
+    public function updateBlog($id, $data)
+    {
+        return $this->blogRepository->update($id, $data);
     }
 }

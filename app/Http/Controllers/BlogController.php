@@ -33,17 +33,36 @@ class BlogController extends Controller
 
     public function deleteBlog($id)
     {
-        
+        $this->blogService->deleteblog($id);
+        return response()->json(['message' => 'Blog deleted'], 200);
     }
 
     public function updateBlog(Request $request, $id)
     {
-        
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'level' => 'nullable|string',
+            'constructor' => 'nullable|string',
+            'thumbnail' => 'nullable|url',
+            'slug' => "required|string|unique:playlists,slug,$id",
+            'rating' => 'nullable|numeric|min:0|max:5',
+        ]);
+        $updatedBlog = $this->blogService->updateBlog($id, $request->all());
+        if ($updatedBlog) {
+            return response()->json(['message' => 'Blog updated', 'blog' => $updatedBlog], 200);
+        } else {
+            return response()->json(['message' => 'Blog not found or update failed'], 404);
+        }
     }
 
-    public function getAllBlogs()
+    public function getBlogs(Request $request)
     {
-        
+        $blogs = $this->blogService->getBlogs($request->all());
+        if(!$blogs){
+            return response()->json(['message' => 'No blogs found'], 404);
+        }
+        return response()->json(['blogs' => $blogs], 200);
     }
 }
 

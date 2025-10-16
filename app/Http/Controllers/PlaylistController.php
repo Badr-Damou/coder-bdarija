@@ -17,15 +17,15 @@ class PlaylistController extends Controller
 
     public function storePlaylist(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'level' => 'nullable|string',
-            'constructor' => 'nullable|string',
-            'thumbnail' => 'nullable|url',
-            'slug' => 'required|string|unique:playlists,slug,',
-            'rating' => 'nullable|numeric|min:0|max:5',
-        ]);
+        // $request->validate([
+        //     'title' => 'required|string|max:255',
+        //     'description' => 'nullable|string',
+        //     'level' => 'nullable|string',
+        //     'constructor' => 'nullable|string',
+        //     'thumbnail' => 'nullable|url',
+        //     'slug' => 'required|string|unique:playlists,slug,',
+        //     'rating' => 'nullable|numeric|min:0|max:5',
+        // ]);
 
         // dd($request);
 
