@@ -27,13 +27,13 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/blogs', [BlogController::class, 'getBlogs']);
     Route::get('/blog/{id}', [BlogController::class, 'showBlog']);
     Route::get('/categories', [CategoryController::class, 'getCategories']);
-    Route::post('/category/create', [CategoryController::class, 'createCategory']);
+    Route::post('/category/create', [CategoryController::class, 'storeCategory']);
     Route::delete('/category/{id}', [CategoryController::class, 'deleteCategory']);
     Route::put('category/{id}', [CategoryController::class, 'updateCategory']);
-    Route::get('/category/{id}', [CategoryController::class, 'showCategory']);
-    Route::post('/author/create', [AuthorController::class, 'storeAuthor']);
-    Route::get('/authors', [AuthController::class, 'getAuthors']);
+    Route::get('/category/{id}', [CategoryController::class, 'showCaregory']);
+    Route::get('/authors', [AuthorController::class, 'getAuthors']);
     Route::get('/author/{id}/show', [AuthorController::class, 'showAuthor']);
+    Route::post('/author/create', [AuthorController::class, 'storeAuthor']);
     Route::put('/author/{id}/update', [AuthorController::class, 'updateAuthor']);
     Route::delete('/author/{id}/delete', [AuthorController::class, 'deleteAuthor']);
 

@@ -2,13 +2,32 @@
 
 namespace App\Services;
 
+use App\Repositories\AuthorRepository;
+
 class AuthorService
 {
     /**
      * Create a new class instance.
      */
-    public function __construct()
+    protected $authorRepository;
+    public function __construct(AuthorRepository $authorRepository)
     {
-        
+        $this->authorRepository = $authorRepository;
+    }
+    public function getAllAuthors()
+    {
+        return $this->authorRepository->getAll();
+    }
+
+    public function storeAuthor($data){
+        return $this->authorRepository->store($data);
+    }
+
+    public function showAuthor($id){
+        return $this->authorRepository->getById($id);
+    }
+
+    public function updateAuthor($id, $data){
+        return $this->authorRepository->update($id, $data);
     }
 }

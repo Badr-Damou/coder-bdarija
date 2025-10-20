@@ -20,6 +20,12 @@ class BlogService
     {
         return $this->blogRepository->getAll();
     }
+
+    public function getBlogById($id)
+    {
+        return $this->blogRepository->getById($id);
+    }
+
     public function storeBlog($data)
     {
         return $this->blogRepository->store($data);

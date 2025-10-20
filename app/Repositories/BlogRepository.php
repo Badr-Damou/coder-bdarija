@@ -12,6 +12,11 @@ class BlogRepository
     {
         return Blog::all();
     }
+
+    public function getById($id)
+    {
+        return Blog::find($id);
+    }
     
     public function store($data)
     {

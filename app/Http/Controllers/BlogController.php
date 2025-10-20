@@ -14,6 +14,24 @@ class BlogController extends Controller
         $this->blogService = $blogService;
     }
 
+    public function getBlogs(Request $request)
+    {
+        $blogs = $this->blogService->getBlogs($request->all());
+        if(!$blogs){
+            return response()->json(['message' => 'No blogs found'], 404);
+        }
+        return response()->json(['blogs' => $blogs], 200);
+    }
+
+    public function showBlog($id)
+    {
+        $blog = $this->blogService->getBlogById($id);
+        if(!$blog){
+            return response()->json(['message' => 'blog not found'], 404);
+        }
+        return response()->json(['blog' => $blog], 200);
+    }
+    
     public function storeBlog(Request $request)
     {
         $request->validate([
@@ -31,12 +49,7 @@ class BlogController extends Controller
         "blog" => $blog], 201);
     }
 
-    public function deleteBlog($id)
-    {
-        $this->blogService->deleteblog($id);
-        return response()->json(['message' => 'Blog deleted'], 200);
-    }
-
+    
     public function updateBlog(Request $request, $id)
     {
         $request->validate([
@@ -55,14 +68,11 @@ class BlogController extends Controller
             return response()->json(['message' => 'Blog not found or update failed'], 404);
         }
     }
-
-    public function getBlogs(Request $request)
+    
+    public function deleteBlog($id)
     {
-        $blogs = $this->blogService->getBlogs($request->all());
-        if(!$blogs){
-            return response()->json(['message' => 'No blogs found'], 404);
-        }
-        return response()->json(['blogs' => $blogs], 200);
+        $this->blogService->deleteblog($id);
+        return response()->json(['message' => 'Blog deleted'], 200);
     }
 }
 
