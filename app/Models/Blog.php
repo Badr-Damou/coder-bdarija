@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     protected $fillable = [
-        'title', 'content', 'slug', 'image', 'read_time', 'language', 'author_id'
+        'title', 'content', 'slug', 'thumbnail', 'read_time', 'language', 'author_id'
     ];
 
     public function author()
@@ -18,5 +18,10 @@ class Blog extends Model
     public function blogCategories()
     {
         return $this->hasMany(BlogCategory::class);
+    }
+
+    public function blogImages()
+    {
+        return $this->hasMany(BlogImage::class);
     }
 }

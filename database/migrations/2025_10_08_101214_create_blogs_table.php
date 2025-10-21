@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('slug')->unique();
-            $table->string('image')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->integer('read_time')->nullable();
             $table->string('language');
             $table->foreignId('author_id')->constrained('authors');

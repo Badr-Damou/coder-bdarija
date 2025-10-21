@@ -37,7 +37,7 @@ class BlogRepository
                 'slug' => $data['slug'],
                 'title' => $data['title'],
                 'content' => $data['content'] ?? null,
-                'image' => $data['image'] ?? null,
+                'thumbnail' => $data['thumbnail'] ?? null,
                 'read_time' => $data['read_time'] ?? null,
                 'language' => $data['language'] ?? null,
                 'author_id' => $data['author_id'] ?? null,
