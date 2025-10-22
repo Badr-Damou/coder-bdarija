@@ -24,7 +24,7 @@ class AuthorController extends Controller
 
     public function storeAuthor(Request $request)
     {
-        $author = $this->authorService->storeAuthor($request->all());
+        $author = $this->authorService->storeAuthor($request);
         if (!$author){
             return response()->json(['message' => 'Author creation failed'], 500);
         };

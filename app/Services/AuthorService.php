@@ -19,8 +19,8 @@ class AuthorService
         return $this->authorRepository->getAll();
     }
 
-    public function storeAuthor($data){
-        return $this->authorRepository->store($data);
+    public function storeAuthor($request){
+        return $this->authorRepository->store($request);
     }
 
     public function showAuthor($id){

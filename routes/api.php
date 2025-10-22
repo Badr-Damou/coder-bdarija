@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BlogImageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PlaylistController;
 use Illuminate\Container\Attributes\Auth;
@@ -36,5 +37,5 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::post('/author/create', [AuthorController::class, 'storeAuthor']);
     Route::put('/author/{id}/update', [AuthorController::class, 'updateAuthor']);
     Route::delete('/author/{id}/delete', [AuthorController::class, 'deleteAuthor']);
-
+    Route::post('/blogImage/create', [BlogImageController::class, 'storeBlogImage']);
 });

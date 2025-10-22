@@ -13,8 +13,13 @@ class AuthorRepository
         return Author::all();
     }
 
-    public function store($data)
+    public function store($request)
     {
+        $data = $request->only(['name', 'bio', 'email', 'website', 'twitter', 'linkedin', 'github', 'youtube']); 
+        if ($request->hasFile('profile_image')) {
+            $path = $request->file('profile_picture')->store('author_images', 'public');
+            $data['profile_picture'] = asset('storage/' . $path);
+        }
         return Author::create($data);
     }
 

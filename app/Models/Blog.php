@@ -22,6 +22,6 @@ class Blog extends Model
 
     public function blogImages()
     {
-        return $this->hasMany(BlogImage::class);
+        return $this->hasMany(BlogImages::class);
     }
 }
