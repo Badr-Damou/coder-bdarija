@@ -8,7 +8,7 @@ class Author extends Model
 {
     protected $fillable = [
         'name', 'bio', 'profile_picture', 'website', 
-        'twitter', 'linkedin', 'github', 'youtube',
+        'x', 'linkedin', 'github', 'youtube',
     ];
 
     public function blogs()

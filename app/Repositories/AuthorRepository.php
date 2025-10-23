@@ -15,7 +15,7 @@ class AuthorRepository
 
     public function store($request)
     {
-        $data = $request->only(['name', 'bio', 'email', 'website', 'twitter', 'linkedin', 'github', 'youtube']); 
+        $data = $request->only(['name', 'bio', 'email', 'website', 'x', 'linkedin', 'github', 'youtube']); 
         if ($request->hasFile('profile_picture')) {
             $path = $request->file('profile_picture')->store('author_images', 'public');
             $data['profile_picture'] = asset('storage/' . $path);

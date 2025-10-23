@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('bio')->nullable();
             $table->string('profile_picture')->nullable();
             $table->string('website')->nullable();
-            $table->string('twitter')->nullable();
+            $table->string('x')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('github')->nullable();
             $table->string('youtube')->nullable();
